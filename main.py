@@ -26,7 +26,7 @@ class ValueTooSmall(Error):
 
 class Tic_Tac_Toe:
 
-    def __init__(self, size):
+    def __init__(self, size=3):
         self.active = True
         self.choosing = True
         self.players_list = ["X", "O"]
@@ -90,7 +90,7 @@ class Tic_Tac_Toe:
             except ValueTooBig:
                 print(f"Maximum allowed number is {self.columns_total}")
             except ValueTooSmall:
-                print(f"Minimum allowed number is {1}")
+                print("Minimum allowed number is 1")
             else:
                 try:
                     row = int(input("Choose a row: ")) - 1
@@ -103,7 +103,7 @@ class Tic_Tac_Toe:
                 except ValueTooBig:
                     print(f"Maximum allowed number is {self.rows_total}")
                 except ValueTooSmall:
-                    print(f"Minimum allowed number is {1}")
+                    print("Minimum allowed number is 1")
                 else:
                     if self.tracking_arr[row, column] == "":
                         self.tracking_arr[row, column] = player
@@ -141,5 +141,5 @@ class Tic_Tac_Toe:
 
 
 if __name__ == "__main__":
-    game = Tic_Tac_Toe(size=3)
+    game = Tic_Tac_Toe()
     game.play()
